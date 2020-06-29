@@ -18,18 +18,18 @@
 
 [colors]
 ;background = ${xrdb:color0:#282a36}
-background = #282a36
-background-alt = #44475a
+background = #d91d2021
+background-alt = #d93c3836
 ;foreground = ${xrdb:color7:#222}
-foreground = #f8f8f2
-foreground-alt = #6272a4
-cyan = #8be9fd
-green = #50fa7b
-orange = #ffb86c
-pink = #ff79c6
-purple = #bd93f9
-red = #ff5555
-yellow = #f1fa8c
+foreground = #ebdbb2
+foreground-alt = #a89984
+cyan = #689d6a
+green = #98971a
+orange = #d65d0e
+blue = #458588
+purple = #b16286
+red = #cc241d
+yellow = #d79921
 
 [bar/example]
 monitor = ${env:MONITOR:eDP1}
@@ -231,10 +231,10 @@ date-alt = " %d/%m/%Y"
 
 time = %H:%M
 time-alt = %H:%M:%S
-
+; 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.blue}
+format-underline = ${colors.blue}
 
 label = %date% %time%
 

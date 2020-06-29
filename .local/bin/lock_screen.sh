@@ -1,7 +1,11 @@
 #!/bin/bash
 # https://github.com/glindstedt/xwobf
-xwobf -s 5 /tmp/.i3lock.png
+xwobf -s 9 /tmp/.i3lock.png
+betterlockscreen -u /tmp/.i3lock.png
+betterlockscreen -l blur
 
+
+<<COMENT
 B='#282a3622'
 P='#bd93f9ff'
 R='#ff5555ff'

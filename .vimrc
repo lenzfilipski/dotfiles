@@ -26,15 +26,17 @@ Plugin 'itchyny/lightline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Config lightline.vim
+" Gruvbox8 colorscheme
+let g:gruvbox_transp_bg=1
+set background=dark    " Setting dark mode
+autocmd vimenter * colorscheme gruvbox8
 
+" Config lightline.vim
 set laststatus=2
 set noshowmode
-
 let g:lightline = {
-	\ 'colorscheme': 'darcula',
+	\ 'colorscheme': 'ayu_dark',
 	\ }
-
 
 
 " When started as "evim", evim.vim will already have done these settings, bail
@@ -70,6 +72,8 @@ augroup END
 
 " show line numbers
 set number
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+set cursorline
 
 " set tabs and indent
 set tabstop=4

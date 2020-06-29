@@ -209,6 +209,9 @@ exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 318 1"
 # bluetooth
 exec bluema-tray
 
+# rofi
+bindsym $mod+Tab exec --no-startup-id rofi -show combi
+
 # start mopidy server at startup
 #exec mopidy
 
@@ -222,18 +225,22 @@ bindsym $mod+p exec --no-startup-id polo
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # feh bg
-exec_always --no-startup-id feh --bg-fill $HOME/Images/wallpaper/lake_mountains_trees.jpg
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*
 
 # screen brightness control
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 10
-bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15
+bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 5
+bindsym Shift+XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 5
 
 # screen lock
 # Lock even when activity on fullscreen. Not optimal
 #exec --no-startup-id xautolock -time 5 -locker lock_screen.sh &
-bindsym XF86Favorites exec --no-startup-id lock_screen.sh &
+#bindsym XF86Favorites exec --no-startup-id lock_screen.sh &
+bindsym XF86Favorites exec --no-startup-id betterlockscreen -l dimblur
 #bindsym XF86Tools exec -no-startup-id lock_screen.sh &
 #bindcode 179 exec -no-startup-id lock_screen.sh &
+exec_always --no-startup-id betterlockscreen -u $HOME/Images/wallpaper
 
 # apps floating by default
 for_window [class="Bitwarden"] floating enable
