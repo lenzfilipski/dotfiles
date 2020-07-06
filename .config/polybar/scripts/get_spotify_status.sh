@@ -6,8 +6,8 @@ elif [ "$(playerctl --player=playerctld status 2>&1)" = "No player could handle 
 	echo "No music player"
 elif [ "$(playerctl --player=playerctld status)" = "Paused"  ]; then
     polybar-msg -p "$(pgrep -f "polybar example")" hook spotify-play-pause 2 >/dev/null
-    #playerctl --player=playerctld metadata --format "{{ title }} - {{ artist }}"
+    playerctl --player=playerctld metadata --format "{{ title }} - {{ artist }}"
 else # Can be configured to output differently when player is paused
     polybar-msg -p "$(pgrep -f "polybar example")" hook spotify-play-pause 1 >/dev/null
-    #playerctl --player=playerctld metadata --format "{{ title }} - {{ artist }}"
+    playerctl --player=playerctld metadata --format "{{ title }} - {{ artist }}"
 fi
