@@ -200,47 +200,41 @@ gaps outer 3
 smart_gaps inverse_outer
 smart_borders on
 
-# composer
-exec_always --no-startup-id $HOME/.config/picom/launch.sh
+##### Startup #####
+exec_always --no-startup-id $HOME/.config/picom/launch.sh								# composer
+exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 318 1" 					# natural mouse scrolling
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh								# polybar
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*	# feh bg
 
-# natural mouse scrolling
-exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 318 1"
-
-# bluetooth
-exec bluema-tray
-
-# rofi
-bindsym $mod+Tab exec --no-startup-id rofi -show combi
-
-# start mopidy server at startup
-#exec mopidy
-
-# browser
-bindsym $mod+BackSpace exec --no-startup-id vivaldi-stable
-
-# explorer
-bindsym $mod+p exec --no-startup-id polo
-
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# feh bg
-exec_always --no-startup-id feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*
+##### Keybindings #####
+bindsym $mod+BackSpace exec --no-startup-id vivaldi-stable			# browser
+bindsym $mod+p exec --no-startup-id polo							# explorer
+bindsym $mod+Tab exec --no-startup-id rofi -show combi				# rofi
 
 # screen brightness control
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15
-bindsym Shift+XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 5
-bindsym Shift+XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 5
+bindsym Ctrl+XF86MonBrightnessDown	exec --no-startup-id xbacklight -set 0.1
+bindsym Ctrl+XF86MonBrightnessUp     exec --no-startup-id xbacklight -set 100
 
-# screen lock
-# Lock even when activity on fullscreen. Not optimal
-#exec --no-startup-id xautolock -time 5 -locker lock_screen.sh &
-#bindsym XF86Favorites exec --no-startup-id lock_screen.sh &
+# screen lock: betterlockscreen
 bindsym XF86Favorites exec --no-startup-id betterlockscreen -l dimblur
-#bindsym XF86Tools exec -no-startup-id lock_screen.sh &
-#bindcode 179 exec -no-startup-id lock_screen.sh &
 exec_always --no-startup-id betterlockscreen -u $HOME/Images/wallpaper
+
+# some tools
+mode "utils" {
+	bindsym l exit
+	bindsym b exec "i3-nagbar -t warning -m 'Do you really want to reboot to uefi?' -B 'Yes' 'systemctl reboot --firmware-setup'"
+	bindsym s exec shutdown now
+	bindsym r exec reboot
+
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym XF86Tools mode "default"
+}
+
+bindsym XF86Tools mode "utils"
 
 # apps floating by default
 for_window [class="Bitwarden"] floating enable

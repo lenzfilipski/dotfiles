@@ -47,7 +47,7 @@ line-size = 3
 line-color = ${colors.background-alt}
 
 spacing = 1
-padding-right = 2
+padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
@@ -97,13 +97,13 @@ ws-icon-9 = 10; 10
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.purple}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.purple}
 label-focused-underline= ${colors.purple}
 label-focused-padding = 2
 
@@ -132,6 +132,7 @@ format = %{T8}<label>
 format-font = 3
 format-background = ${colors.cyan}
 format-padding = 2
+;exec = ~/.config/polybar/scripts/get_spotify_status.sh
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 
 [module/spotify-prev]
@@ -160,31 +161,11 @@ format-background = ${colors.cyan}
 format-padding = 1
 click-left = playerctl next spotify
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <toggle> <icon-next> <bar-progress> <label-time>
-host = 127.0.0.1
-port = 6601
-password = 
-
-icon-prev =  
-icon-stop =  
-icon-play = 
-icon-pause =  
-icon-next =  
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-bar-progress-width = 25
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-
 [module/xbacklight]
 type = internal/xbacklight
 
 format = <label>
+format-padding = 2
 label =  %percentage%% 
 
 [module/backlight-acpi]
@@ -197,16 +178,18 @@ type = internal/cpu
 interval = 2
 
 format-prefix = " "
-format-prefix-foreground = ${colors.red}
-format-underline = ${colors.red}
+format-prefix-foreground = ${colors.foreground}
+format-background = ${colors.red}
+format-padding = 2
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.cyan}
-format-underline = ${colors.cyan}
+format-prefix-foreground = ${colors.foreground}
+format-background = ${colors.cyan}
+format-padding = 2
 label = %percentage_used%%
 
 [module/wlan]
@@ -216,7 +199,8 @@ interval = 3.0
 
 ;format-connected = <ramp-signal> <label-connected>
 format-connected = <label-connected>
-format-connected-underline = ${colors.purple}
+format-connected-background = ${colors.purple}
+format-connected-padding = 2
 label-connected = %essid%
 
 format-disconnected =
@@ -237,9 +221,10 @@ type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-background = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
+format-padding = 2
 label-connected = %local_ip%
 
 format-disconnected =
@@ -259,8 +244,9 @@ time = %H:%M
 time-alt = %H:%M:%S
 ; 
 format-prefix = 
-format-prefix-foreground = ${colors.blue}
-format-underline = ${colors.blue}
+format-prefix-foreground = ${colors.foreground}
+format-background = ${colors.blue}
+format-padding = 2
 
 label = %date% %time%
 
@@ -268,11 +254,13 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
 format-muted = <label-muted>
-label-muted =  muted
+format-muted-padding = 2
+label-muted =  ><
 label-muted-foreground = ${colors.foreground-alt}
 
 ramp-volume-0 =  
@@ -283,21 +271,24 @@ ramp-volume-2 = 
 type = internal/battery
 adapter = ADP1
 full-at = 98
-label-charging = %percentage%
-label-discharging = %percentage%, %consumption%
-label-full = %percentage%
-format-charging-underline = ${colors.yellow}
-format-discharging-underline = ${colors.yellow}
-format-full-underline = ${colors.yellow}
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+format-charging-background = ${colors.yellow}
+format-charging-padding = 2
+format-discharging-background = ${colors.yellow}
+format-discharging-padding = 2
+format-full-background = ${colors.yellow}
+format-full-padding = 2
 
 [module/bat1]
 inherit = battery
 type = internal/battery
 battery = BAT1
 
-format-charging = | <animation-charging> <label-charging>
-format-discharging = | <ramp-capacity> <label-discharging>
-format-full-prefix = "|   "
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.green}
 
 ramp-capacity-0 =  
@@ -305,23 +296,23 @@ ramp-capacity-1 = 
 ramp-capacity-2 =  
 ramp-capacity-3 =  
 ramp-capacity-4 =  
-ramp-capacity-foreground = ${colors.yellow}
+ramp-capacity-foreground = ${colors.background-alt}
 
 animation-charging-0 =  
 animation-charging-1 =  
 animation-charging-2 =  
 animation-charging-3 =  
 animation-charging-4 =  
-animation-charging-foreground = ${colors.green}
+animation-charging-foreground = ${colors.background-alt}
 animation-charging-framerate = 750
 
 [module/bat2]
 inherit = battery
 type = internal/battery
 battery = BAT0
-format-charging = <label-charging> |
-format-discharging = <label-discharging> |
-format-full = <label-full> |
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
 
 [module/temperature]
 type = internal/temperature
@@ -330,9 +321,10 @@ base-temperature = 20
 warn-temperature = 70
 
 format = <ramp> <label>
-format-underline = ${colors.orange}
+format-background = ${colors.orange}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-background = ${self.format-background}
+format-padding = 2
 
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -341,7 +333,7 @@ label-warn-foreground = ${colors.red}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.orange}
+ramp-foreground = ${colors.foreground}
 
 [settings]
 screenchange-reload = true
