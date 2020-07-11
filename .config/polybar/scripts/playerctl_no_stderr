@@ -1,0 +1,4 @@
+#!/bin/bash
+# put this in a bin folder registered in PATH
+
+playerctl status 2>&1

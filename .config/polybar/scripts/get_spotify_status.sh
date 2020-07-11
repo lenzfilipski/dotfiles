@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ "$(playerctl --player=playerctld status)" = "Stopped" ]; then
+if [ "$(playerctl_no_stderr)" = "No player could handle this command"  ]; then
+	echo "No player"
+elif [ "$(playerctl --player=playerctld status)" = "Stopped" ]; then
     echo "No music is playing"
-elif [ "$(playerctl --player=playerctld status 2>&1)" = "No player could handle this command"  ]; then
-	echo "No music player"
 elif [ "$(playerctl --player=playerctld status)" = "Paused"  ]; then
     polybar-msg -p "$(pgrep -f "polybar example")" hook spotify-play-pause 2 >/dev/null
     playerctl --player=playerctld metadata --format "{{ title }} - {{ artist }}"
