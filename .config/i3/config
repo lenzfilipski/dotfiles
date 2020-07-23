@@ -195,16 +195,18 @@ bindsym $mod+r mode "resize"
 # i3 gaps
 for_window [class=".*"] border pixel 1
 
-gaps inner 15
-gaps outer 3
-smart_gaps inverse_outer
+gaps inner 8
+gaps top 27
 smart_borders on
+
+##### Vars #####
+set $bg_update feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*
 
 ##### Startup #####
 exec_always --no-startup-id $HOME/.config/picom/launch.sh								# composer
-exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 318 1" 					# natural mouse scrolling
+exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 'libinput Natural Scrolling Enabled' 1" 					# natural mouse scrolling
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh								# polybar
-exec_always --no-startup-id feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*	# feh bg
+exec_always --no-startup-id $bg_update
 
 ##### Keybindings #####
 bindsym $mod+BackSpace exec --no-startup-id vivaldi-stable			# browser
@@ -236,12 +238,29 @@ mode "utils" {
 
 bindsym XF86Tools mode "utils"
 
+mode "display" {
+	bindsym Right exec xrandr --output HDMI2 --auto --right-of eDP1
+	bindsym Left exec xrandr --output HDMI2 --auto --left-of eDP1
+	bindsym Up exec xrandr --output HDMI2 --auto --above eDP1
+	bindsym s exec "xrandr --output HDMI2 --auto --same-as eDP1"
+	bindsym x exec "xrandr --output HDMI2 --off"
+
+	bindsym f exec $bg_update
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym XF86Display mode "default"
+}
+
+bindsym XF86Display mode "display"
+
 # apps floating by default
 for_window [class="Bitwarden"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 
 # apps default ws
 assign [class="Vivaldi"] → $ws2
+assign [class="Spotify|Spotify Premium|spotify"] → $ws7
 assign [class="Joplin"] → $ws8
 assign [class="discord|discord-canary"] → $ws9
 assign [class="^Slack"] → $ws10
