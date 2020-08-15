@@ -269,7 +269,7 @@ label-volume-foreground = ${colors.foreground}
 format-muted = <label-muted>
 format-muted-background = ${self.format-volume-background}
 label-muted = " >< "
-label-muted-foreground = ${colors.foreground-alt}
+label-muted-foreground = ${colors.background-alt}
 
 ramp-volume-0 = "  "
 ramp-volume-1 = "  "
