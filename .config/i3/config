@@ -195,12 +195,15 @@ bindsym $mod+r mode "resize"
 # i3 gaps
 for_window [class=".*"] border pixel 1
 
-gaps inner 8
-gaps top 27
+gaps inner 13
+gaps top 36
+gaps bottom 36
+gaps left 33
+gaps right 33
 smart_borders on
 
 ##### Vars #####
-set $bg_update feh --randomize --bg-fill $HOME/Images/wallpaper/gruvbox/*
+set $bg_update feh --randomize --bg-scale $HOME/Images/wallpaper/rose/*
 
 ##### Startup #####
 exec_always --no-startup-id $HOME/.config/picom/launch.sh								# composer
