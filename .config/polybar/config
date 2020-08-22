@@ -205,19 +205,19 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected =<ramp-signal>
-format-connected-background = ${colors.yellow}
+format-connected-background = ${colors.foreground}
 label-connected = %essid%
 
 label-disconnected = " 󰤭 "
-label-disconnected-foreground = ${colors.background-alt}
-label-disconnected-background = ${colors.yellow}
+label-disconnected-foreground = ${colors.foreground}
+label-disconnected-background = ${colors.red}
 
 ramp-signal-0 = " %{F#cc241d}󰤫%{F-} "
 ramp-signal-1 = " 󰤟 "
 ramp-signal-2 = " 󰤢 "
 ramp-signal-3 = " 󰤥 "
 ramp-signal-4 = " 󰤨 "
-ramp-signal-foreground = ${colors.foreground}
+ramp-signal-foreground = ${colors.background}
 
 [module/eth]
 type = internal/network
@@ -241,9 +241,9 @@ date-alt = "%d/%m/%y"
 
 time = %R
 time-alt = %H:%M:%S
-format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.background}
 format-background = ${colors.purple}
-format-padding = 1
+format-padding = 2
 
 label = %date% %time%
 
@@ -251,23 +251,24 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <ramp-volume>
-format-volume-background = ${colors.green}
+format-volume-background = ${colors.foreground}
 label-volume = " %percentage%%"
-label-volume-foreground = ${colors.foreground}
+label-volume-foreground = ${colors.background}
 
 format-muted = <label-muted>
 format-muted-background = ${self.format-volume-background}
 label-muted = " >< "
-label-muted-foreground = ${colors.background-alt}
+label-muted-foreground = ${colors.background}
 
 ramp-volume-0 = "  "
 ramp-volume-1 = "  "
 ramp-volume-2 = "  "
+ramp-volume-foreground = ${colors.background}
 
 [module/battery-combined-udev]
 type = custom/script
-format-foreground = ${colors.foreground}
-format-background = ${colors.blue}
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
 format-padding = 1
 exec = ~/.config/polybar/scripts/battery-combined-udev.sh
 tail = true
