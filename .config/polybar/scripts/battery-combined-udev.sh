@@ -42,6 +42,8 @@ battery_print() {
 
 		if [ "$battery_percent" -gt 97 ]; then
 			echo "$icon"
+		elif [ "$battery_percent" -eq 69 ]; then
+			echo "nice %$icon"
 		else
 			echo "$battery_percent%$icon"
 		fi
@@ -58,7 +60,11 @@ battery_print() {
 			icon="󰁺"
 		fi
 
-		echo "$battery_percent%$icon"
+		if [ "$battery_percent" -eq 69 ]; then
+			echo "nice %$icon"
+		else
+			echo "$battery_percent%$icon"
+		fi
 	fi
 }
 
