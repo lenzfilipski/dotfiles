@@ -267,3 +267,10 @@ assign [class="Spotify|Spotify Premium|spotify"] → $ws7
 assign [class="Joplin"] → $ws8
 assign [class="discord|discord-canary"] → $ws9
 assign [class="^Slack"] → $ws10
+
+
+# i3 scrachpad
+# scratchpad
+bindsym $mod+Prior move scratchpad
+bindsym $mod+Next scratchpad show
+
