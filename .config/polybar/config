@@ -8,13 +8,14 @@ foreground = #fdd8d3
 orange = #ed8148
 ;blue = #d9458588
 purple = #eb769b
-red = #77293d
+;red = #77293d
+red = #73253a
 ;yellow = #d79921
 
 [default-bar]
 #monitor = ${env:MONITOR:eDP1}
-height = 21
-offset-y = 19
+height = 23
+offset-y = 18
 fixed-center = true
 radius = 0.0
 
@@ -53,12 +54,12 @@ enable-ipc = true
 [bar/status]
 inherit = default-bar
 width = 20%
-offset-x = 80%:-16
+offset-x = 80%:-15
 locale = fr_FR.UTF-8
 modules-right = volume wlan battery-combined-udev bluetooth date 
 tray-position = right
 tray-padding = 2
-tray-background = ${colors.foreground}
+tray-background = ${colors.red}
 
 [bar/open-sys-info]
 inherit = default-bar
