@@ -248,6 +248,11 @@ mode "display" {
 	bindsym s exec "xrandr --output HDMI2 --auto --same-as eDP1"
 	bindsym x exec "xrandr --output HDMI2 --off"
 
+	bindsym Shift+Up exec xrandr -o normal
+	bindsym Shift+Down exec xrandr -o inverted
+	bindsym Shift+Left exec xrandr -o left
+	bindsym Shift+Right exec xrandr -o right
+
 	bindsym f exec $bg_update
 
 	bindsym Return mode "default"
