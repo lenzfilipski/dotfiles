@@ -1,0 +1,18 @@
+[Default Applications]
+application/octet-stream=mousepad.desktop
+application/pdf=okular.desktop
+application/x-gettext-translation=mousepad.desktop
+application/xml=mousepad.desktop
+application/x-wine-extension-ini=mousepad.desktop
+text/plain=mousepad.desktop
+inode/directory=polo-gtk.desktop
+text/html=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
+
+[Added Associations]
+application/vnd.debian.binary-package=pamac-manager.desktop;
+application/pdf=okularApplication_pdf.desktop;
