@@ -11,6 +11,8 @@ battery_print() {
 	battery_max_0=0
 	battery_max_1=0
 
+	battery_low_msg=0
+
 	if [ -f "$PATH_AC/online" ]; then
 		ac=$(cat "$PATH_AC/online")
 	fi
@@ -64,6 +66,17 @@ battery_print() {
 			echo "nice %$icon"
 		else
 			echo "$battery_percent%$icon"
+		fi
+
+		# low battery banner on i3
+		if [ "$battery_percent" -lt 8 ] && [ "$battery_low_msg" -eq 0 ]; then
+			i3-nagbar \
+				-t warning \
+				-m '!! WARNING !! BATTERY RUNNING LOW !!' \
+				-B 'shutdown now' 'shutdown now' > /dev/null 2>&1
+			battery_low_msg=1
+		elif [ "$battery_percent" -gt 8 ]; then
+			battery_low_msg=0
 		fi
 	fi
 }

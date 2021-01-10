@@ -163,16 +163,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 10 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -212,9 +212,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh								# polybar
 exec_always --no-startup-id $bg_update
 
 ##### Keybindings #####
+# apps
 bindsym $mod+BackSpace exec --no-startup-id vivaldi-stable			# browser
-bindsym $mod+p exec --no-startup-id polo							# explorer
+bindsym $mod+p exec --no-startup-id thunar 							# explorer
 bindsym $mod+Tab exec --no-startup-id rofi -show combi				# rofi
+bindsym $mod+Shift+B exec bwmenu							# bitwarden with rofi
 
 # screen brightness control
 bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 5
