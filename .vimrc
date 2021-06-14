@@ -13,23 +13,23 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'itchyny/lightline.vim'
+"Plugin 'rust-lang/rust.vim'
+"Plugin 'itchyny/lightline.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 
 " Gruvbox8 colorscheme
-let g:gruvbox_transp_bg=1
-set background=dark    " Setting dark mode
-autocmd vimenter * colorscheme gruvbox8
+"let g:gruvbox_transp_bg=1
+"set background=dark    " Setting dark mode
+"autocmd vimenter * colorscheme gruvbox8
 
 " Config lightline.vim
 set laststatus=2
@@ -95,9 +95,9 @@ endif
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
-Plug 'ap/vim-css-color'
+"Plug 'ap/vim-css-color'
 
 " Initialize plugin system
-call plug#end()
+"call plug#end()
