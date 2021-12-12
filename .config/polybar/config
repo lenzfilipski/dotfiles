@@ -56,7 +56,7 @@ enable-ipc = true
 [bar/status]
 inherit = default-bar
 width = 30%
-offset-x = 70%:-15
+offset-x = 69%:+5
 locale = fr_FR.UTF-8
 modules-right = volume wlan battery-combined-udev bluetooth date 
 tray-position = right

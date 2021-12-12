@@ -12,15 +12,18 @@ x-scheme-handler/https=vivaldi-stable.desktop
 x-scheme-handler/about=vivaldi-stable.desktop
 x-scheme-handler/unknown=vivaldi-stable.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
+x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+x-scheme-handler/discord-719647875465871400=discord-719647875465871400.desktop
+x-scheme-handler/eclipse+command=_home_lenz_Downloads_capella_.desktop
 
 [Added Associations]
 application/vnd.debian.binary-package=pamac-manager.desktop;
-application/pdf=okularApplication_pdf.desktop;
+application/pdf=com.github.xournalpp.xournalpp.desktop;okularApplication_pdf.desktop;
 text/markdown=typora.desktop;vim.desktop;
-image/jpeg=org.gnome.gThumb.desktop;gimp.desktop;feh.desktop;
-image/png=gimp.desktop;org.gnome.gThumb.desktop;feh.desktop;
+image/jpeg=gimp.desktop;org.gnome.gThumb.desktop;feh.desktop;
+image/png=org.gnome.gThumb.desktop;gimp.desktop;feh.desktop;
 font/ttf=vim.desktop;
-text/plain=vim.desktop;typora.desktop;
+text/plain=vim.desktop;atom.desktop;typora.desktop;
 text/x-rpm-spec=vim.desktop;
 application/x-pcapng=wireshark.desktop;vim.desktop;
 application/x-mswinurl=wine-extension-ini.desktop;
@@ -28,3 +31,4 @@ application/octet-stream=atom.desktop;
 image/svg+xml=org.gnome.gThumb.desktop;
 image/vnd.dxf=atom.desktop;vim.desktop;org.gnome.gThumb.desktop;
 image/x-eps=vim.desktop;wine-extension-txt.desktop;
+text/csv=libreoffice-calc.desktop;libreoffice-writer.desktop;vim.desktop;

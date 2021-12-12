@@ -204,8 +204,10 @@ smart_borders on
 
 ##### Vars #####
 set $bg_update feh --randomize --bg-scale $HOME/Images/wallpaper/rose/*
+#set $bg_update feh --bg-scale $HOME/Images/wallpaper/94618053_p0.jpg
 
 ##### Startup #####
+exec --no-startup-id blueman-applet
 exec setxkbmap -layout fr
 exec_always --no-startup-id $HOME/.config/picom/launch.sh												# composer
 exec --no-startup-id "xinput set-prop 'Synaptics TM3276-022' 'libinput Natural Scrolling Enabled' 1"	# natural mouse scrolling
@@ -240,6 +242,10 @@ mode "utils" {
 	bindsym s exec shutdown now
 	bindsym r exec reboot
 	bindsym u exec dm-tool switch-to-greeter
+
+	# devices
+	# wacom tablet
+	bindsym w exec bash -c "$HOME/.local/bin/wacom_intuos_bt_s.sh"
 
 	# back to normal: Enter or Escape or $mod+r
 	bindsym Return mode "default"
